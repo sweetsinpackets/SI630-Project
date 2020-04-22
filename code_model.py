@@ -45,7 +45,8 @@ def train_biLSTM(X_train, Y_train, X_test, Y_test):
     # embedding layer maps the input value into a index ranging by (0, input_len=300), 300 is the word2vec dimension
     # this is to reduce the training cost of LSTM to be affordable
     # meanwhile, it offers a int-scale discrete, hence we map the input value to range [0,300] also
-    bi_lstm.add(keras.layers.Embedding(input_dim=input_len, output_dim=1))
+    # bi_lstm.add(keras.layers.Embedding(input_dim=input_len, output_dim=1))
+    bi_lstm.add(keras.layers.Embedding(input_dim=input_len, output_dim=input_len))
 
     # the bi-lstm layer
     # the dropout/recurrent_dropout is tried to be optimal
